@@ -13,7 +13,7 @@
                 var people;
 
                 function mealCost(){
-                    subTotal = prompt("What is the total of your bill?", 100);
+                    subTotal = document.getElementById("Bill Amount").value;
                     subTotal = Number(subTotal)
                     while(isNaN(subTotal) || subTotal<=0){
                         subTotal = prompt("Please enter a number greater than 0", 100);
@@ -22,16 +22,16 @@
                 }
 
                 function service(){
-                    rating= prompt("How would you rate your meal out of 10?", 5);
+                    rating = document.getElementById("Service Rating").value;
                     rating = Number(rating)
                     while(isNaN(rating) || (rating<0 || rating>10)){
                         rating = prompt("Please enter a number 0-10", 5);
                         rating = Number(rating)
                     }
                 }
-
+                console.log(rating)
                 function split(){
-                    people= prompt("How many people would you like to split with?", 1);
+                    people = document.getElementById("Split People").value;
                     people = Number(people)
                     while(isNaN(people) || people<1){
                         people = prompt("Please enter a number greater than 1", 1);
@@ -58,13 +58,13 @@
                 if(people === 1){
                     document.getElementById("test").innerHTML = "The total cost of your bill is: £" + toPay;
                 }else{
-                    document.getElementById("test").innerHTML = "The total cost of your bill is: £" + toPay +"pp";
+                    document.getElementById("test").innerHTML = "The total cost of your share is: £" + toPay +"pp";
                 }
             }
 
             
         </script>
-
+        
         <style>
             body{
                 background-color: azure;
@@ -83,21 +83,28 @@
                 justify-content: center;
                 align-items: center;
                 width: 50%;
-                height: 400px;
+                height: 500px;
             }
         </style>
     </head>
     <body>
         <article>
             <h1>Your bill</h1>
-            <section>
-                <h3 id="mealCost">The  cost of your meal is:</h3>
-
-                <h3 id="tipCost">The recommended tip is:</h3>
-
-                <h3 id="test">The total cost of your bill is:</h3>
-                
+            <form>
+                <p>How much was your bill?</p>
+                <input id="Bill Amount" type="text" placeholder="Bill Amount">
+                <p>How much was your Service 0 to 10?</p>
+                <input id="Service Rating" type="text" placeholder="0 - 10">
+                <p>How many people are you spliting with?</p>
+                <input id="Split People" type="text" placeholder="People"><br>
                 <button type="button" onclick="start()">Calculate</button>
+            </form>
+            <section>
+                <h3 id="mealCost"></h3>
+
+                <h3 id="tipCost"></h3>
+
+                <h3 id="test"></h3>
         </section>
         </article>
 
