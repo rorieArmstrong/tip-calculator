@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tip Calculator</title>
+        <meta charset="UTF-8">
+        
+        <script>
+
+            function start(){
+                var subTotal = prompt("What is the total of your bill?", 100);
+                subTotal = Number(subTotal)
+                while(isNaN(subTotal)){
+                    var subTotal = prompt("Please enter a number", 100);
+                    subTotal = Number(subTotal)
+                }   
+                var Rating= prompt("How would you rate your meal out of 10?", 5);
+                while(isNaN(Rating)){
+                    var Rating = prompt("Please enter a number", 5);
+                    Rating = Number(Rating)
+                }
+                var People= prompt("How many people would you like to split with?", 1);
+                while(isNaN(People)){
+                    var People = prompt("Please enter a number", 1);
+                    People = Number(People)
+                }
+
+                var tipPercent = Rating*2/100;
+                var tip = subTotal * (tipPercent);
+                var toPay = tip + subTotal;
+                toPay = toPay/People
+                toPay = Math.ceil(100*toPay)/100   
+                
+                document.getElementById("mealCost").innerHTML = "The total cost of your meal is: £" + subTotal;
+                document.getElementById("tipCost").innerHTML = "The total cost of your recommended tip is: £" + tip;
+                document.getElementById("test").innerHTML = "The total cost of your bill is: £" + toPay;
+            }
+        </script>
+            
+        <style>
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Your bill</h1>
+        <h3 id="mealCost">The total cost of your meal is:</h3>
+
+        <h3 id="tipCost">The total cost of your recommended tip is:</h3>
+
+        <h3 id="test">The total cost of your bill is:</h3>
+        
+        <button type="button" onclick="start()">Calculate</button>
+        
+
+
+    </body>
+</html>
