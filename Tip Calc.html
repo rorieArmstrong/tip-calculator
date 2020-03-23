@@ -28,29 +28,50 @@
                 var tip = subTotal * (tipPercent);
                 var toPay = tip + subTotal;
                 toPay = toPay/People
+
+                subTotal = Math.ceil(100*subTotal)/100
+                tip = Math.ceil(100*tip)/100
                 toPay = Math.ceil(100*toPay)/100   
                 
-                document.getElementById("mealCost").innerHTML = "The total cost of your meal is: £" + subTotal;
-                document.getElementById("tipCost").innerHTML = "The total cost of your recommended tip is: £" + tip;
+                document.getElementById("mealCost").innerHTML = "The  cost of your meal is: £" + subTotal;
+                document.getElementById("tipCost").innerHTML = "The your recommended tip is: £" + tip;
                 document.getElementById("test").innerHTML = "The total cost of your bill is: £" + toPay;
             }
         </script>
             
         <style>
-
+            body{
+                background-color: azure;
+                display: flex;
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            article{
+                background-color: darkslateblue;
+                color: darksalmon;
+                display: flex;
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                height: 400px;
+            }
         </style>
     </head>
     <body>
+        <article>
+            <h1>Your bill</h1>
+            <h3 id="mealCost">The  cost of your meal is:</h3>
 
-        <h1>Your bill</h1>
-        <h3 id="mealCost">The total cost of your meal is:</h3>
+            <h3 id="tipCost">The your recommended tip is:</h3>
 
-        <h3 id="tipCost">The total cost of your recommended tip is:</h3>
-
-        <h3 id="test">The total cost of your bill is:</h3>
-        
-        <button type="button" onclick="start()">Calculate</button>
-        
+            <h3 id="test">The total cost of your bill is:</h3>
+            
+            <button type="button" onclick="start()">Calculate</button>
+        </article>
 
 
     </body>
